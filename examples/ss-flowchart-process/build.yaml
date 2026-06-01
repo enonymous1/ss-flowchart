@@ -1,0 +1,28 @@
+title: Flowchart Creation Process
+engine: dot
+output: examples/ss-flowchart-process/flowchart_creation
+steps:
+  - id: DefineInput
+    label: Define Input
+    fillcolor: "#B3D4FC"
+    color: "black"
+  - id: ParseInput
+    label: Parse Input
+    depends_on: [DefineInput]
+    fillcolor: "#C8E6C9"
+  - id: BuildGraph
+    label: Build Graph
+    depends_on: [ParseInput]
+    fillcolor: "#FFF9C4"
+  - id: ApplyLayout
+    label: Apply Layout
+    depends_on: [BuildGraph]
+    fillcolor: "#FFECB3"
+  - id: RenderOutput
+    label: Render Output
+    depends_on: [ApplyLayout]
+    fillcolor: "#FFCCBC"
+  - id: ReviewDiagram
+    label: Review Diagram
+    depends_on: [RenderOutput]
+    fillcolor: "#D7CCC8"

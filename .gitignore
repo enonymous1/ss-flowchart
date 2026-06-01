@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.build/
+.pytest_cache/
+*.egg-info/
+*.egg
+rmf_flowchart.png
+!examples/rmf_flowchart/rmf_flowchart.png
+*.log
+.DS_Store

@@ -1,0 +1,32 @@
+title: Risk Management Framework Steps
+engine: neato
+output: examples/rmf_flowchart/rmf_flowchart
+steps:
+  - id: Prepare
+    label: Prepare
+    fillcolor: "#ADD8E6"
+    color: "black"
+  - id: Categorize
+    label: "Categorize\nSystem"
+    depends_on: [Prepare, Monitor]
+    fillcolor: "#90EE90"
+  - id: Select
+    label: "Select\nControls"
+    depends_on: [Prepare, Categorize]
+    fillcolor: "#ADFF2F"
+  - id: Implement
+    label: "Implement\nControls"
+    depends_on: [Prepare, Select]
+    fillcolor: "#FFFF00"
+  - id: Assess
+    label: "Assess\nControls"
+    depends_on: [Prepare, Implement]
+    fillcolor: "#FFD700"
+  - id: Authorize
+    label: "Authorize\nSystem"
+    depends_on: [Prepare, Assess]
+    fillcolor: "#FFA500"
+  - id: Monitor
+    label: "Monitor\nControls"
+    depends_on: [Prepare, Authorize]
+    fillcolor: "#FF8C00"
