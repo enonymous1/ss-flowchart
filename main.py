@@ -1,10 +1,10 @@
-import os
-import sys
+"""Thin entry point for running from a checkout.
 
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), "src"))
+Install the package first (`pip install -e .`), then prefer the
+`ss-flowchart` console script. This file exists only for `python main.py`.
+"""
 
 from build_viz.cli import main
 
-
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

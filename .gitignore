@@ -5,11 +5,22 @@ __pycache__/
 .Python
 env/
 venv/
+.venv/
 .build/
 .pytest_cache/
+.ruff_cache/
+.mypy_cache/
 *.egg-info/
 *.egg
-rmf_flowchart.png
+dist/
+build/
+# Generated diagrams are not committed, except the two example images
+# deliberately kept as documentation.
+*.png
 !examples/rmf_flowchart/rmf_flowchart.png
+!examples/ss-flowchart-process/flowchart_creation.png
+*.svg
+*.pdf
+*.dot
 *.log
 .DS_Store

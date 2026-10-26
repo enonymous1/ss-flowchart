@@ -4,12 +4,15 @@ This module loads a build definition from YAML or JSON, validates the
 required structure, and converts it into the package's internal data models.
 """
 
+from __future__ import annotations
+
 import json
 import os
-from typing import List
+from typing import Any
 
 from .models import BuildDefinition, BuildStep
 
+yaml: Any = None
 try:
     import yaml
 except ImportError:  # pragma: no cover
@@ -30,26 +33,30 @@ def load_build_definition(file_path: str) -> BuildDefinition:
         A BuildDefinition instance containing the parsed definition.
 
     Raises:
+        FileNotFoundError: If the input file does not exist.
         RuntimeError: If YAML support is requested but PyYAML is not installed.
         ValueError: If the file format is unsupported or the data is malformed.
     """
     extension = os.path.splitext(file_path)[1].lower()
-    with open(file_path, "r", encoding="utf-8") as handle:
+    with open(file_path, encoding="utf-8") as handle:
         if extension in {".yml", ".yaml"}:
             if yaml is None:
                 raise RuntimeError(
-                    "PyYAML is required for YAML input. Install it with `pip install PyYAML`."
+                    "PyYAML is required for YAML input. "
+                    "Install it with `pip install PyYAML`."
                 )
-            data = yaml.safe_load(handle)
+            data: Any = yaml.safe_load(handle)
         elif extension == ".json":
             data = json.load(handle)
         else:
-            raise ValueError("Unsupported build definition format: %s" % extension)
+            raise ValueError(f"Unsupported build definition format: {extension}")
 
     if not isinstance(data, dict) or "steps" not in data:
         raise ValueError("Build definition must include a top-level 'steps' key.")
 
     title = data.get("title", "Build Process")
+    if not isinstance(title, str):
+        raise ValueError("'title' must be a string.")
     metadata = {k: v for k, v in data.items() if k not in {"steps", "title"}}
     steps = data["steps"]
     if not isinstance(steps, list):
@@ -62,6 +69,6 @@ def load_build_definition(file_path: str) -> BuildDefinition:
     )
 
 
-def load_build_steps(file_path: str) -> List[BuildStep]:
+def load_build_steps(file_path: str) -> list[BuildStep]:
     """Load and return only the list of build steps from a definition file."""
     return load_build_definition(file_path).steps

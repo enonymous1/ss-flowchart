@@ -1,16 +1,39 @@
 [project]
 name = "ss-flowchart"
-version = "0.1.0"
+version = "0.2.0"
 description = "A small Python flowchart generator for build and process pipelines using Graphviz."
 readme = "README.md"
+license = "MIT"
 authors = [
-  {name = "Your Name"}
+  {name = "enonymous1"},
+]
+keywords = ["flowchart", "graphviz", "diagram", "pipeline", "workflow"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Software Development :: Documentation",
 ]
 requires-python = ">=3.10"
 dependencies = [
   "graphviz>=0.20.1",
   "PyYAML>=6.0",
-  "pytest>=8.0.0"
+]
+
+[project.urls]
+Homepage = "https://github.com/enonymous1/ss-flowchart"
+Repository = "https://github.com/enonymous1/ss-flowchart"
+Issues = "https://github.com/enonymous1/ss-flowchart/issues"
+
+[project.optional-dependencies]
+dev = [
+  "mypy>=1.0",
+  "pytest>=8.0",
+  "ruff>=0.1",
+  "types-PyYAML>=6.0",
 ]
 
 [project.scripts]
@@ -19,3 +42,30 @@ ss-flowchart = "build_viz.cli:main"
 [build-system]
 requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+  "integration: requires the Graphviz system binaries (dot)",
+]
+
+[tool.ruff]
+line-length = 88
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W", "UP", "B", "SIM"]
+
+[tool.mypy]
+python_version = "3.10"
+strict = true
+warn_unused_ignores = true
+show_error_codes = true
+
+# graphviz ships no type stubs or py.typed marker.
+[[tool.mypy.overrides]]
+module = "graphviz"
+ignore_missing_imports = true
