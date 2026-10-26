@@ -1,6 +1,6 @@
 [project]
 name = "ss-flowchart"
-version = "0.2.0"
+version = "0.3.0"
 description = "A small Python flowchart generator for build and process pipelines using Graphviz."
 readme = "README.md"
 license = "MIT"
@@ -37,7 +37,7 @@ dev = [
 ]
 
 [project.scripts]
-ss-flowchart = "build_viz.cli:main"
+ss-flowchart = "ss_flowchart.cli:main"
 
 [build-system]
 requires = ["setuptools>=61.0", "wheel"]

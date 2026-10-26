@@ -10,9 +10,9 @@ from pathlib import Path
 
 import pytest
 
-from build_viz.core_graph import build_graph
-from build_viz.models import BuildStep
-from build_viz.renderers.graphviz_renderer import GraphvizRenderer
+from ss_flowchart.core_graph import build_graph
+from ss_flowchart.models import BuildStep
+from ss_flowchart.renderers.graphviz_renderer import GraphvizRenderer
 
 
 def simple_graph():

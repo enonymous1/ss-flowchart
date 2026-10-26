@@ -4,9 +4,9 @@ from pathlib import Path
 
 import pytest
 
-from build_viz.core_graph import build_graph
-from build_viz.models import BuildStep
-from build_viz.parser import load_build_definition
+from ss_flowchart.core_graph import build_graph
+from ss_flowchart.models import BuildStep
+from ss_flowchart.parser import load_build_definition
 
 
 def test_duplicate_id_raises():

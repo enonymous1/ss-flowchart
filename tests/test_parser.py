@@ -9,7 +9,7 @@ from pathlib import Path
 
 import pytest
 
-from build_viz.parser import load_build_definition
+from ss_flowchart.parser import load_build_definition
 
 
 def example_path() -> Path:

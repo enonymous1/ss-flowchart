@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.3.0 — 2026-10-26
+
+Package rename, approved after 0.2.0 and before any push of it.
+
+### Changed
+
+- Package renamed `build_viz` → `ss_flowchart`, the direct underscore
+  form of the distribution and CLI name. Import it as
+  `from ss_flowchart.cli import main`. The distribution name, the
+  `ss-flowchart` command, and all CLI behavior are unchanged.
+- Version bumped to 0.3.0 because the import path is a breaking change
+  for anyone importing `build_viz` directly.
+
 ## 0.2.0 — 2026-10-26
 
 Modernization on top of the original history. No repo or CLI rename:

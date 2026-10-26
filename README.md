@@ -145,7 +145,7 @@ This project separates the core workflow into three layers:
 <summary>Project layout</summary>
 
 ```
-src/build_viz/
+src/ss_flowchart/
   cli.py            # argparse CLI, output resolution, exit codes
   core_graph.py     # step list -> BuildGraph, validation
   models.py         # BuildStep, BuildDefinition, BuildGraph

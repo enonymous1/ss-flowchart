@@ -4,9 +4,9 @@ from pathlib import Path
 
 import pytest
 
-from build_viz import __version__
-from build_viz.cli import main, parse_args, resolve_output_path
-from build_viz.renderers.graphviz_renderer import GraphvizRenderer
+from ss_flowchart import __version__
+from ss_flowchart.cli import main, parse_args, resolve_output_path
+from ss_flowchart.renderers.graphviz_renderer import GraphvizRenderer
 
 
 def test_version_flag(capsys):

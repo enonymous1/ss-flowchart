@@ -2,7 +2,7 @@
 
 import pytest
 
-from build_viz.models import BuildStep
+from ss_flowchart.models import BuildStep
 
 
 def test_label_defaults_to_id():
